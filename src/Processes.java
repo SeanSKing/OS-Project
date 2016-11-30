@@ -1,113 +1,110 @@
 public class Processes
 {
-	@SuppressWarnings("deprecation")
-	public static void main(String[] args){
-    
-	  int q = 4;
+   @SuppressWarnings("deprecation")
+   public static void main(String[] args)
+   {
+      int q = 1;
       int i = 0;
       int loop = 1;
       
-      Counter counter = new Counter();
-      Hello hello = new Hello();
-      Bye bye = new Bye();
-      Fibonacci fib = new Fibonacci();
+      Counter c = new Counter();
+      Hello h = new Hello();
+      Bye b = new Bye();
+      Fibonacci f = new Fibonacci();
       
-      while (true){
-    	  
-         if (counter.done == false 
-        		 || hello.done == false 
-        		 || bye.done == false 
-        		 || fib.done == false){
-        	 
-            switch (i){   //do we absolutely need a switch statement?? 
-           
+      long startTime = System.currentTimeMillis();
+      
+      loop:
+      while (true)
+      {
+         if (c.done == false || h.done == false || b.done == false || f.done == false)
+         {
+            switch (i)
+            {
                case 0: 
-                  if (counter.done == false){
-                	  
-                     if (loop == 1){ 
-                    	 counter.start();
+                  if (c.done == false)
+                  {
+                     if (loop < 5)
+                        c.star();
+                     else
+                        c.cont();
+                     try
+                     {
+                        Thread.sleep(q);
                      }
-                     else{
-                    	 counter.cont();
-                     }
-
-                     try{
-                    	 Thread.sleep(q);
-                     }
-                     
-                     catch (InterruptedException e){
+                     catch (InterruptedException e)
+                     {
                         System.out.println("Prob with sleep");
                      }
-                     counter.stop();
+                     c.sto();
                   }
-                  
-                  i = (i + 1) % 4;
                   break;
                     
                case 1: 
-                  if (hello.done == false){
-                	  
-                     if (loop == 1){
-                        hello.star();
-                     }else{ 
-                        hello.cont();
-                     }
-                     
-                     try{
+                  if (h.done == false)
+                  {
+                     if (loop < 5)
+                        h.star();
+                     else
+                        h.cont();
+                     try
+                     {
                         Thread.sleep(q);
-                     }catch (InterruptedException e){
-                    	 
+                     }
+                     catch (InterruptedException e)
+                     {
                         System.out.println("Prob with sleep");
                      }
-                     
-                     hello.stop();
+                     h.sto();
                   }
-                  
-                  i = (i + 1) % 4;
                   break;
                        
                case 2: 
-                  if (bye.done == false) {
-                     if (loop == 1){
-                        bye.start();
+                  if (b.done == false)
+                  {
+                     if (loop < 5)
+                        b.star();
+                     else
+                        b.cont();
+                     try
+                     {
+                        Thread.sleep(q);
                      }
-                     else{
-                    	 bye.cont();
-                     }
-                     try{
-                    	 Thread.sleep(q);
-                     }catch (InterruptedException e){
+                     catch (InterruptedException e)
+                     {
                         System.out.println("Prob with sleep");
                      }
-                     bye.stop();
+                     b.sto();
                   }
-                  i = (i + 1) % 4;
                   break;
                     
                case 3: 
-                  if (fib.done == false){
-                     if (loop == 1){
-                        fib.start();
+                  if (f.done == false)
+                  {
+                     if (loop < 5)
+                        f.star();
+                     else
+                        f.cont();
+                     try
+                     {
+                        Thread.sleep(q);
                      }
-                     else{
-                        fib.cont();
-                     }
-                     try{ 
-                    	 Thread.sleep(q);   
-                     }catch (InterruptedException e){
+                     catch (InterruptedException e)
+                     {
                         System.out.println("Prob with sleep");
                      }
-                     fib.stop();
+                     f.sto();
                   }
-                  
-                  i = (i + 1) % 4;
-                  loop++;
                   break;
-               default: System.out.println("Problem??");
             }
+            loop++;
+            i = (i + 1) % 4;
          }
          else
-            break;
+            break loop;
       }
+      long endTime   = System.currentTimeMillis();
+      long totalTime = endTime - startTime;
+      System.out.println("Total run time is " + totalTime);
    }
 }

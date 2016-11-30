@@ -9,33 +9,34 @@ class Bye extends Thread
    
    Bye(){
      
-	  running = false;
+      running = false;
       done = false;
    }
    
-   public void start(){
-	  running = true;
+   public void star(){
+      running = true;
       start();
    }
    
-   //public void stop(){ running = false;}
+   public void sto(){ running = false;}
    
    public void cont(){ running = true; }
    
-   public Boolean done(){ return this.done; }
+   public Boolean done(){ 
+      return this.done; }
    
-   public void run(){
-     
-	   while (count < Math.pow(2,6)){
-         
-		   if (running){     
-			   
-	            System.out.println(s);
-	            count++;
+   public void run()
+   {
+      while (count < Math.pow(2,8))
+      {
+         if (running)
+         {
+            System.out.println(s);
+            count++;
          }
-         done = true;
       }
-	   
+      done = true;
+      System.out.println("Bye done");
    }
    
 }
