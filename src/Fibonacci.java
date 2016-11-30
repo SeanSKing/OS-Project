@@ -2,7 +2,7 @@ class Fibonacci extends Thread
 {
 
    int count = 0;
-   int x = 0, y = 1;
+   int x = 0, y = 1, temp;
    Boolean running;
    Boolean done;
 
@@ -11,31 +11,34 @@ class Fibonacci extends Thread
       done = false;
    }
    
-   public void start(){
+   public void star(){
       running = true;
       start();
    }
    
-   //public void stop(){  running = false; }
+   public void sto(){  running = false; }
    
    public void cont(){ running = true;  }
    
-   public Boolean done(){ return done;  }
+   public Boolean done(){ 
+      return done;  }
 
-   public void run(){
-      
-	  int temp;
-                  
-      while (count < Math.pow(2,6)){  
-         if (running){
+   public void run()
+   {                  
+      while (count < Math.pow(2,9))
+      {
+         if (running)
+         {
             System.out.println("Fib is " + y);
             temp = x + y;
             x = y;
             y = temp;
+               
             count++;
          }
       }
       done = true;
+      System.out.println("Fib done");
    }
    
 }
