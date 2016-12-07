@@ -16,10 +16,10 @@ public class Processes
       loop:
       while (true){
 
-         if (counter.done == false
-                 || hello.done == false
-                 || bye.done == false
-                 || fibonacci.done == false){
+         if (counter.done() == false
+                 || hello.done() == false
+                 || bye.done() == false
+                 || fibonacci.done() == false){
 
             switch (i) {
 
