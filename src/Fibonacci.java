@@ -29,7 +29,6 @@ class Fibonacci extends Thread
             temp = (x + y) % Math.pow(2,16);
             x = y;
             y = temp;
-
             count++;
          }
       }
