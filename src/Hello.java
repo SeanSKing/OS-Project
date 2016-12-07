@@ -7,30 +7,24 @@ class Hello extends Thread
    Boolean done;
 
    Hello(){
-     
       running = false;
       done = false;
    }
-   
+
    public void star(){
-      
       running = true;
       start();
    }
-   
+
    public void sto(){ running = false;  }
-   
+
    public void cont(){ running = true;  }
-   
-   public Boolean done(){  
-      return done; }
-   
-   public void run()
-   {
-      while (count < Math.pow(2,8))
-      {
-         if (running)
-         {
+
+   public Boolean done(){ return done; }
+
+   public void run() {
+      while (count < Math.pow(2,8)){
+         if (running){
             System.out.println(s);
             count++;
          }
@@ -38,5 +32,5 @@ class Hello extends Thread
       done = true;
       System.out.println("Hello done");
    }
-   
+
 }
