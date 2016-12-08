@@ -1,36 +1,47 @@
+package com.company;
+
+/**
+ * Created by samru on 11/30/2016.
+ */
 class Hello extends Thread
 {
 
-   String  s = "Hello!";
-   int count = 0;
-   Boolean running;
-   Boolean done;
+    String  s = "Hello!";
+    int count = 0;
+    Boolean running;
+    Boolean done;
 
-   Hello(){
-      running = false;
-      done = false;
-   }
+    Hello(){
 
-   public void star(){
-      running = true;
-      start();
-   }
+        running = false;
+        done = false;
+    }
 
-   public void sto(){ running = false;  }
+    public void star(){
 
-   public void cont(){ running = true;  }
+        running = true;
+        start();
+    }
 
-   public Boolean done(){ return done; }
+    public void sto(){ running = false;  }
 
-   public void run() {
-      while (count < Math.pow(2,8)){
-         if (running){
-            System.out.println(s);
-            count++;
-         }
-      }
-      done = true;
-      System.out.println("Hello done");
-   }
+    public void cont(){ running = true;  }
+
+    public Boolean done(){
+        return done; }
+
+    public void run()
+    {
+        while (count < Math.pow(2,8))
+        {
+            if (running)
+            {
+                //System.out.println(s);
+                count++;
+            }
+        }
+        done = true;
+        System.out.println("Hello done");
+    }
 
 }

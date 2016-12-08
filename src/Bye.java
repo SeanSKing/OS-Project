@@ -1,38 +1,46 @@
+package com.company;
 
+/**
+ * Created by samru on 11/30/2016.
+ */
 class Bye extends Thread
 {
 
-   protected String  s = "Bye!";
-   int count = 0;
-   protected Boolean running;
-   protected Boolean done;
+    protected String  s = "Bye!";
+    int count = 0;
+    protected Boolean running;
+    protected Boolean done;
 
-   Bye(){
+    Bye(){
 
-      running = false;
-      done = false;
-   }
+        running = false;
+        done = false;
+    }
 
-   public void star(){
-      running = true;
-      start();
-   }
+    public void star(){
+        running = true;
+        start();
+    }
 
-   public void sto(){ running = false;}
+    public void sto(){ running = false;}
 
-   public void cont(){ running = true; }
+    public void cont(){ running = true; }
 
-   public Boolean done(){ return this.done; }
+    public Boolean done(){
+        return this.done; }
 
-   public void run(){
-      while (count < Math.pow(2,8)){
-         if (running){
-            System.out.println(s);
-            count++;
-         }
-      }
-      done = true;
-      System.out.println("Bye done");
-   }
+    public void run()
+    {
+        while (count < Math.pow(2,8))
+        {
+            if (running)
+            {
+                //System.out.println(s);
+                count++;
+            }
+        }
+        done = true;
+        System.out.println("Bye done");
+    }
 
 }
